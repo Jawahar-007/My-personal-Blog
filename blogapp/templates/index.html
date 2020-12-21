@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="row">
+<!-- Blog Entries Column -->
+<div class="col-md-8 mt-3 left">
+    {% for post in blogapp %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text text-muted h6">{{ post.author }} | {{ post.published_date }}</p>
+            <p class="card-text">{{post.text|slice:":200"|linebreaks }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% block sidebar %} {% include 'sidebar.html' %}  {% endblock sidebar %}
+</div>
+</div>
+
+{% if posts.paginator.num_pages > 1 %}
+{% if posts.has_previous %}
+<center><a href="?page={{ posts.previous_page_number }}"><b>previous</b></a></center>
+{% endif %}
+<center><span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span></center>
+{% if posts.has_next %}
+<center><a href="?page={{ posts.next_page_number }}"><b>next</b></a></center>
+{% endif %}
+{% endif %}
+{% endblock content %}
+</body>
+</html>

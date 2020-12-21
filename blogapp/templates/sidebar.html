@@ -1,0 +1,28 @@
+{% block sidebar %}
+{% load static %}
+<style>
+    .card{
+    box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4 float-right ">
+    <div class="card my-4">
+        <h5 class="card-header">About Me</h5>
+        <div class="card-body">
+            <img class="card-img-top" src="{% static 'jawa.jpeg' %}" alt="Card image cap">
+            <br><br>
+            <p class="card-text">Hello guys, Iam Jawahar</p>
+            <br>
+            <h5><b>Popular links</b></h5>
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+{% endblock sidebar %}
